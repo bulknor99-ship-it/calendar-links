@@ -8,7 +8,7 @@ use Labomatik\CalendarLinks\Generator;
 /**
  * @see https://icalendar.org/RFC-Specifications/iCalendar-RFC-5545/
  */
-class Ics implements Generator
+class IcsOrganizer implements Generator
 {
 
     protected $uid = null;
@@ -25,10 +25,12 @@ class Ics implements Generator
             'PRODID:-//Google Inc//Google Calendar 70.9054//EN',
             'VERSION:2.0',
             'CALSCALE:GREGORIAN',
-            'METHOD:REQUEST',
+            'METHOD:PUBLISH',
             'X-WR-TIMEZONE:Europe/Paris',
+            'DTSTAMP:'.date('Ymd\THis'),
             'BEGIN:VEVENT',
         ];
+
         if ($link->allDay) {
             $dateTimeFormat = 'Ymd';
             $url[] = 'DTSTART:'.$link->from->format($dateTimeFormat);
@@ -42,27 +44,34 @@ class Ics implements Generator
         if ($link->organizer) {
             $url[] = 'ORGANIZER;CN=' . $this->escapeString($link->organizer) . ':mailto:' . $this->escapeString($link->organizer);
             $url[] = 'ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN=' . $this->escapeString($link->organizer) . ';X-NUM-GUESTS=0:mailto:' . $this->escapeString($link->organizer);
+
         }
         $url[] = 'UID:'.$this->generateEventUid($link);
         if ($link->attendee) {
+
             foreach ($link->attendee as $attendee) {
                 $url[] = 'ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=' . $this->escapeString($attendee) . ';X-NUM-GUESTS=0:mailto:' . $this->escapeString($attendee);
             }
+
         }
+
         if ($link->description) {
             $url[] = 'DESCRIPTION:'.$this->escapeString($link->description);
         }
+
         if ($link->address) {
             $url[] = 'LOCATION:'.$this->escapeString($link->address);
         }
+
         $url[] = 'SEQUENCE:0';
         $url[] = 'STATUS:CONFIRMED';
         $url[] = 'SUMMARY:'.$link->title;
         $url[] = 'TRANSP:OPAQUE';
         $url[] = 'END:VEVENT';
         $url[] = 'END:VCALENDAR';
-        $redirectLink = implode('%0d%0a', $url);
-        return 'data:text/calendar;charset=utf8,'.$redirectLink;
+        $redirectLink = implode('\r\n', $url);
+
+        return 'data:text/calendar;charset=utf8;base64,'.base64_encode($redirectLink);
     }
 
     /** @see https://tools.ietf.org/html/rfc5545.html#section-3.3.11 */

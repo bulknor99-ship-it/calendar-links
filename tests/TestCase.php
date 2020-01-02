@@ -4,8 +4,8 @@ namespace Labomatik\CalendarLinks\Test;
 
 use DateTime;
 use DateTimeZone;
-use Spatie\CalendarLinks\Link;
-use Spatie\Snapshots\MatchesSnapshots;
+use Labomatik\CalendarLinks\Link;
+use Labomatik\Snapshots\MatchesSnapshots;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase

@@ -3,8 +3,8 @@
 namespace Labomatik\CalendarLinks\Generators;
 
 use DateTimeZone;
-use Spatie\CalendarLinks\Link;
-use Spatie\CalendarLinks\Generator;
+use Labomatik\CalendarLinks\Link;
+use Labomatik\CalendarLinks\Generator;
 
 /**
  * @see https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/master/services/yahoo.md

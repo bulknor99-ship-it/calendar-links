@@ -3,11 +3,12 @@
 namespace Labomatik\CalendarLinks;
 
 use DateTime;
-use Spatie\CalendarLinks\Generators\Ics;
-use Spatie\CalendarLinks\Generators\Yahoo;
-use Spatie\CalendarLinks\Generators\Google;
-use Spatie\CalendarLinks\Generators\WebOutlook;
-use Spatie\CalendarLinks\Exceptions\InvalidLink;
+use Labomatik\CalendarLinks\Generators\Ics;
+use Labomatik\CalendarLinks\Generators\IcsOrganizer;
+use Labomatik\CalendarLinks\Generators\Yahoo;
+use Labomatik\CalendarLinks\Generators\Google;
+use Labomatik\CalendarLinks\Generators\WebOutlook;
+use Labomatik\CalendarLinks\Exceptions\InvalidLink;
 
 /**
  * @property-read string $title
@@ -36,6 +37,12 @@ class Link
 
     /** @var string */
     protected $address;
+
+    /** @var array */
+    protected $attendee;
+
+    /** @var string */
+    protected $organizer;
 
     public function __construct(string $title, DateTime $from, DateTime $to, bool $allDay = false)
     {
@@ -104,14 +111,40 @@ class Link
         return $this;
     }
 
+    /**
+     * @param array $attendee
+     *
+     * @return $this
+     */
+    public function attendee(array $attendee)
+    {
+        $this->attendee = $attendee;
+        return $this;
+    }
+    /**
+     * @param string $organizer
+     *
+     * @return $this
+     */
+    public function organizer(string $organizer)
+    {
+        $this->organizer = $organizer;
+        return $this;
+    }
+
     public function google(): string
     {
         return (new Google())->generate($this);
     }
 
-    public function ics(): string
+    public function ics($uid = null): string
     {
-        return (new Ics())->generate($this);
+        return (new Ics($uid))->generate($this);
+    }
+
+    public function icsOrganizer($uid = null): string
+    {
+        return (new IcsOrganizer($uid))->generate($this);
     }
 
     public function yahoo(): string

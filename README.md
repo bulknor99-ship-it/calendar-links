@@ -69,10 +69,6 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 If you discover any security related issues, please email cris@labomatik.com instead of using the issue tracker.
 
-## Credits
-
-- [Sebastian De Deyne](https://github.com/sebastiandedeyne)
-
 
 ## License
 
