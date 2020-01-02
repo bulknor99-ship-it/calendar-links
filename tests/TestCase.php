@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\CalendarLinks\Test;
+namespace Labomatik\CalendarLinks\Test;
 
 use DateTime;
 use DateTimeZone;

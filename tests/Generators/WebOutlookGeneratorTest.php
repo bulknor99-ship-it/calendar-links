@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\CalendarLink\Test;
+namespace Labomatik\CalendarLink\Test;
 
-use Spatie\CalendarLinks\Test\TestCase;
+use Labomatik\CalendarLinks\Test\TestCase;
 
 class WebOutlookGeneratorTest extends TestCase
 {

@@ -1,17 +1,17 @@
 {
-    "name": "spatie/calendar-links",
+    "name": "labomatik/calendar-links",
     "description": "Generate add to calendar links for Google, iCal and other calendar systems",
     "keywords": [
-        "spatie",
+        "labomatik",
         "calendar-links"
     ],
-    "homepage": "https://github.com/spatie/calendar-links",
+    "homepage": "https://github.com/labomatik/calendar-links",
     "license": "MIT",
     "authors": [
         {
-            "name": "Sebastian De Deyne",
-            "email": "sebastian@spatie.be",
-            "homepage": "https://spatie.be",
+            "name": "Christophe Lemoine",
+            "email": "cris@labomatik.com",
+            "homepage": "https://labomatik.com",
             "role": "Developer"
         }
     ],
@@ -20,16 +20,15 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0",
-        "spatie/phpunit-snapshot-assertions": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\CalendarLinks\\": "src"
+            "Labomatik\\CalendarLinks\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\CalendarLinks\\Test\\": "tests"
+            "Labomatik\\CalendarLinks\\Test\\": "tests"
         }
     },
     "scripts": {

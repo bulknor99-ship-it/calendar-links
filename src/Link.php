@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\CalendarLinks;
+namespace Labomatik\CalendarLinks;
 
 use DateTime;
 use Spatie\CalendarLinks\Generators\Ics;

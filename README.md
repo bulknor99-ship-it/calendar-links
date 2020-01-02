@@ -1,10 +1,5 @@
 # Generate add to calendar links for Google, iCal and other calendar systems
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/calendar-links.svg?style=flat-square)](https://packagist.org/packages/spatie/calendar-links)
-[![Build Status](https://img.shields.io/travis/spatie/calendar-links/master.svg?style=flat-square)](https://travis-ci.org/spatie/calendar-links)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/calendar-links.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/calendar-links)
-[![StyleCI](https://styleci.io/repos/103638080/shield?branch=master)](https://styleci.io/repos/103638080)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/calendar-links.svg?style=flat-square)](https://packagist.org/packages/spatie/calendar-links)
+Forked from Spatie
 
 Using this package you can generate links to add events to calendar systems. Here's a quick example:
 
@@ -27,14 +22,14 @@ The package can also generate ics files that you can open in several email and c
 You can install the package via composer:
 
 ```bash
-composer require spatie/calendar-links
+composer require labomatik/calendar-links
 ```
 
 ## Usage
 
 ``` php
 <?php
-use Spatie\CalendarLinks\Link;
+use Labomatik\CalendarLinks\Link;
 
 $from = DateTime::createFromFormat('Y-m-d H:i', '2018-02-01 09:00');
 $to = DateTime::createFromFormat('Y-m-d H:i', '2018-02-01 18:00');
@@ -56,8 +51,6 @@ echo $link->webOutlook();
 echo $link->ics();
 ```
 
-> ⚠️ ICS download links don't work in IE and EdgeHTML-based Edge browsers, see [details](https://github.com/spatie/calendar-links/issues/71).
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
@@ -74,26 +67,12 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
+If you discover any security related issues, please email cris@labomatik.com instead of using the issue tracker.
 
-## Postcardware
-
-You're free to use this package (it's [MIT-licensed](LICENSE.md)), but if it makes it to your production environment we highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
-
-Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
-
-We publish all received postcards [on our company website](https://spatie.be/en/opensource/postcards).
 ## Credits
 
 - [Sebastian De Deyne](https://github.com/sebastiandedeyne)
-- [All Contributors](../../contributors)
 
-## Support us
-
-Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
-
-Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie). 
-All pledges will be dedicated to allocating workforce on maintenance and new awesome stuff.
 
 ## License
 
