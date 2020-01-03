@@ -66,6 +66,11 @@ class Ics implements Generator
         if ($link->address) {
             $url[] = 'LOCATION:'.$this->escapeString($link->address);
         }
+
+        if ($link->eventUrl) {
+            $url[] = 'URL:'.$this->escapeString($link->eventUrl);
+        }
+
         $url[] = 'SEQUENCE:0';
         $url[] = 'STATUS:CONFIRMED';
         $url[] = 'SUMMARY:'.$link->title;

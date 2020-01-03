@@ -2,6 +2,10 @@
 
 All notable changes to `calendar-links` will be documented in this file
 
+## 1.2.7 - 2020-01-03
+- Support Event URL
+- Add Name and email for organizer
+
 ## 1.2.6 - 2020-01-03
 - Support for CANCEL, PUBLISH and REQUEST ical method
 
