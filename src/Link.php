@@ -44,6 +44,9 @@ class Link
     /** @var string */
     protected $organizer;
 
+    /** @var string */
+    protected $ical_method;
+
     public function __construct(string $title, DateTime $from, DateTime $to, bool $allDay = false)
     {
         $this->title = $title;
@@ -129,6 +132,18 @@ class Link
     public function organizer(string $organizer)
     {
         $this->organizer = $organizer;
+        return $this;
+    }
+
+    /**
+     * @param string $address
+     *
+     * @return $this
+     */
+    public function method(string $method)
+    {
+        $this->ical_method = $method;
+
         return $this;
     }
 
