@@ -20,12 +20,23 @@ class Ics implements Generator
 
     public function generate(Link $link): string
     {
+        switch($link->ical_method){
+            case 'CANCEL':
+                $method = 'CANCEL';
+                break;
+            case 'REQUEST':
+                $method = 'REQUEST';
+                break;
+            default :
+                $method = 'PUBLISH';
+        }
+
         $url = [
             'BEGIN:VCALENDAR',
             'PRODID:-//Google Inc//Google Calendar 70.9054//EN',
             'VERSION:2.0',
             'CALSCALE:GREGORIAN',
-            'METHOD:REQUEST',
+            'METHOD:'.$method,
             'X-WR-TIMEZONE:Europe/Paris',
             'BEGIN:VEVENT',
         ];

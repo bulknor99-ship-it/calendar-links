@@ -2,6 +2,12 @@
 
 All notable changes to `calendar-links` will be documented in this file
 
+## 1.2.6 - 2020-01-03
+- Support for CANCEL, PUBLISH and REQUEST ical method
+
+## 1.2.5 - 2020-01-02
+- Ability to add attendies and organizer
+
 ## 1.2.4 - 2019-07-17
 - Fix Google links for all-day events (use next day as end-date for single-day events)
 - Fix Outlook links for all-day events (omit `enddt` for single-day events)

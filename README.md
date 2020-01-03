@@ -36,7 +36,10 @@ $to = DateTime::createFromFormat('Y-m-d H:i', '2018-02-01 18:00');
 
 $link = Link::create('Sebastian\'s birthday', $from, $to)
     ->description('Cookies & cocktails!')
-    ->address('Samberstraat 69D, 2060 Antwerpen');
+    ->address('rue de fer 125, 5380 Namur')
+    ->attendee(['john@doe.com','silver@bullet.com'])
+    ->organizer('christophe@labo.com')
+    ->method('REQUEST');
 
 // Generate a link to create an event on Google calendar
 echo $link->google();
@@ -49,6 +52,10 @@ echo $link->webOutlook();
 
 // Generate a data uri for an ics file (for iCal & Outlook)
 echo $link->ics();
+
+// Generate a data uri for an ics file with custom ID
+echo $link->ics('custom_id');
+
 ```
 
 ## Changelog
