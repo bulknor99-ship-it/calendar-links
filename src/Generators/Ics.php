@@ -51,8 +51,8 @@ class Ics implements Generator
             $url[] = 'DTSTAMP:'.date('Ymd\THis');
         }
         if ($link->organizer) {
-            $url[] = 'ORGANIZER;CN=' . $this->escapeString($link->organizer) . ':mailto:' . $this->escapeString($link->organizer);
-            $url[] = 'ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN=' . $this->escapeString($link->organizer) . ';X-NUM-GUESTS=0:mailto:' . $this->escapeString($link->organizer);
+            $url[] = 'ORGANIZER;CN=' . $this->escapeString($link->organizer['name']) . ':mailto:' . $this->escapeString($link->organizer['email']);
+            $url[] = 'ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=CHAIR;PARTSTAT=ACCEPTED;CN=' . $this->escapeString($link->organizer['name']) . ';X-NUM-GUESTS=0:mailto:' . $this->escapeString($link->organizer['email']);
         }
         $url[] = 'UID:'.$this->generateEventUid($link);
         if ($link->attendee) {

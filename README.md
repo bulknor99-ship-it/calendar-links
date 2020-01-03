@@ -38,7 +38,7 @@ $link = Link::create('Sebastian\'s birthday', $from, $to)
     ->description('Cookies & cocktails!')
     ->address('rue de fer 125, 5380 Namur')
     ->attendee(['john@doe.com','silver@bullet.com'])
-    ->organizer('christophe@labo.com')
+    ->organizer(['name'=>'Christophe', 'email'=>'christophe@labo.com'])
     ->method('REQUEST');
 
 // Generate a link to create an event on Google calendar

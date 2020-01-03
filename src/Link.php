@@ -41,7 +41,7 @@ class Link
     /** @var array */
     protected $attendee;
 
-    /** @var string */
+    /** @var array */
     protected $organizer;
 
     /** @var string */
@@ -125,11 +125,11 @@ class Link
         return $this;
     }
     /**
-     * @param string $organizer
+     * @param array $organizer
      *
      * @return $this
      */
-    public function organizer(string $organizer)
+    public function organizer(array $organizer)
     {
         $this->organizer = $organizer;
         return $this;
@@ -155,11 +155,6 @@ class Link
     public function ics($uid = null): string
     {
         return (new Ics($uid))->generate($this);
-    }
-
-    public function icsOrganizer($uid = null): string
-    {
-        return (new IcsOrganizer($uid))->generate($this);
     }
 
     public function yahoo(): string
