@@ -181,6 +181,11 @@ class Link
         return (new WebOutlook())->generate($this);
     }
 
+    public function qrCode($uid = null): string
+    {
+        return (new Ics($uid))->generateOnlyString($this);
+    }
+
     public function __get($property)
     {
         return $this->$property;

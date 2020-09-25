@@ -20,6 +20,17 @@ class Ics implements Generator
 
     public function generate(Link $link): string
     {
+        $redirectLink = $this->generateICSString($link);
+        return 'data:text/calendar;charset=utf8,'.$redirectLink;
+    }
+
+    public function generateOnlyString(Link $link): string
+    {
+        return $this->generateICSString($link);
+    }
+
+    public function generateICSString(Link $link): string
+    {
         switch($link->ical_method){
             case 'CANCEL':
                 $method = 'CANCEL';
@@ -78,7 +89,7 @@ class Ics implements Generator
         $url[] = 'END:VEVENT';
         $url[] = 'END:VCALENDAR';
         $redirectLink = implode('%0d%0a', $url);
-        return 'data:text/calendar;charset=utf8,'.$redirectLink;
+        return $redirectLink;
     }
 
     /** @see https://tools.ietf.org/html/rfc5545.html#section-3.3.11 */
