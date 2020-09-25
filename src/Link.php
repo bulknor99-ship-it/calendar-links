@@ -181,9 +181,9 @@ class Link
         return (new WebOutlook())->generate($this);
     }
 
-    public function qrCode($uid = null): string
+    public function icsString($uid = null): string
     {
-        return (new Ics($uid))->generateOnlyString($this);
+        return (new Ics($uid,true))->generate($this);
     }
 
     public function __get($property)

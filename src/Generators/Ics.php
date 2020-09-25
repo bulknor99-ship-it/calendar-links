@@ -12,24 +12,15 @@ class Ics implements Generator
 {
 
     protected $uid = null;
+    protected $only_string;
 
-    public function __construct($uid = null)
+    public function __construct($uid = null, $only_string)
     {
         $this->uid = $uid;
+        $this->only_string = $only_string;
     }
 
     public function generate(Link $link): string
-    {
-        $redirectLink = $this->generateICSString($link);
-        return 'data:text/calendar;charset=utf8,'.$redirectLink;
-    }
-
-    public function generateOnlyString(Link $link): string
-    {
-        return $this->generateICSString($link);
-    }
-
-    public function generateICSString(Link $link): string
     {
         switch($link->ical_method){
             case 'CANCEL':
@@ -89,7 +80,11 @@ class Ics implements Generator
         $url[] = 'END:VEVENT';
         $url[] = 'END:VCALENDAR';
         $redirectLink = implode('%0d%0a', $url);
-        return $redirectLink;
+
+        if($this->only_string)
+            return $redirectLink;
+        else
+            return 'data:text/calendar;charset=utf8,'.$redirectLink;
     }
 
     /** @see https://tools.ietf.org/html/rfc5545.html#section-3.3.11 */
