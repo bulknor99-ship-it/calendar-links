@@ -168,7 +168,7 @@ class Link
 
     public function ics($uid = null): string
     {
-        return (new Ics($uid))->generate($this);
+        return (new Ics($uid, false))->generate($this);
     }
 
     public function yahoo(): string
